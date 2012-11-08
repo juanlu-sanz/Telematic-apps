@@ -1,0 +1,25 @@
+Protocolo TIME - Aplicaciones Telemáticas
+=========================================
+Autores:
+ * Alejandro Martínez Castillo 	- 100277598 - alemarti@it.uc3m.es
+ * Juan Luis Sanz Moreno		- 100076176 - jusanzm@it.uc3m.es
+
+=========================================
+Parámetros de ejecución:
+atdate [-h server] [-p port] -m [cu|ct|s] -d
+
+=========================================
+
+Tanto el servidor como el cliente pueden ser interrumpidos en cualquier
+momento, pulsando Control+C para enviar una señal SIGINT, que cerrará
+todas las conexiones abiertas.
+
+Por defecto se utiliza el puerto 6002 para el servidor, y 37 para el
+cliente. En ambos, dicho puerto puede ser seleccionado con el parámetro
+opcional -p port.
+
+Se hace uso de fork() para crear los hijos, que se encargan de gestionar
+las conexiones de los clientes de manera concurrente.
+
+Hemos llegado a probar a realizar hasta 1000 conexiones concurrentes al
+servidor, funcionando a pleno rendimiento sin problema alguno.
